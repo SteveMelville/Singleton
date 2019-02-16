@@ -11,10 +11,6 @@ class MyThread implements Runnable {
     }
     public void run() {
             Singleton single = Singleton.getInstance();
-            single.fill();
-            single.boil();
-            single.empty();
-            System.out.println(" for " + name);
-            System.out.println(name + " exiting.");
+            single.print(name, single);
     }
 }
