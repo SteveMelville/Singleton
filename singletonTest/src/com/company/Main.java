@@ -9,10 +9,17 @@ public class Main {
         for(int i = 0; i < numThreads; i++){
             array[i] = new MyThread(Integer.toString(i));
         }
-        for (int i = 0; i < numThreads; i++) {
-            synchronized (array[i]) { }
+
+        try {
+            for(int i = 0; i < numThreads; i++){
+                array[i].t.join();
+            }
+        }
+        catch (Exception e){
+            //This is where I would handle the exception
         }
 
+        Singleton.printCount();
         System.out.println("Main thread exiting.");
     }
 }
